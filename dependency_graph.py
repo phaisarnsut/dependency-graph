@@ -65,11 +65,11 @@ def create_graph(folder, create_cluster, label_cluster, strict):
 				if create_cluster:
 					cluster.node(node)
 				else:
-					graph.node(node)
+					graph.node(node, color=color)
 				neighbors = find_neighbors(path)
 				for neighbor in neighbors:
 					if neighbor != node and neighbor in nodes:
-						graph.edge(node, neighbor, color=color)
+						graph.edge(node, neighbor)
 			if create_cluster and label_cluster:
 				cluster.attr(label=folder)
 	return graph
